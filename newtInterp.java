@@ -1,5 +1,3 @@
-package cs3010;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -45,10 +43,12 @@ public class newtInterp {
 			String input;
 			System.out.println("Enter 'q' to quit");
 				do {
-
 					input = kb.nextLine();
-					Coeff(xVector, yVector, new double[xVector.length], Double.parseDouble(input));	
-					
+					long startTime = System.nanoTime();
+					Coeff(xVector, yVector, new double[xVector.length], Double.parseDouble(input));
+					long endTime = System.nanoTime();
+					long duration = (endTime - startTime);
+					System.out.println("Elapsed Time: " + duration + " nanoseconds");
 				}while(!input.equalsIgnoreCase("q"));
 
 				

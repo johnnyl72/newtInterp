@@ -1,5 +1,3 @@
-package cs3010;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
