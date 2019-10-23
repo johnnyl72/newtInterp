@@ -40,18 +40,21 @@ public class newtInterp {
 
 			String input;
 			System.out.println("Enter 'q' to quit");
-				do {
-					input = kb.nextLine();
-					long startTime = System.nanoTime();
-					Coeff(xVector, yVector, new double[xVector.length], Double.parseDouble(input));
-					long endTime = System.nanoTime();
-					long duration = (endTime - startTime);
-					System.out.println("Elapsed Time: " + duration + " nanoseconds");
-				}while(!input.equalsIgnoreCase("q"));
+			input = kb.nextLine();
+			while(!input.equalsIgnoreCase("q")) {
+
+				long startTime = System.nanoTime();
+				Coeff(xVector, yVector, new double[xVector.length], Double.parseDouble(input));
+				long endTime = System.nanoTime();
+				long duration = (endTime - startTime);
+				System.out.println("Elapsed Time: " + duration + " nanoseconds");
+				input = kb.nextLine();
+			}
 
 
 			bufferedReader.close();
 			kb.close();
+			System.exit(0);
 		}//end try
 		catch(FileNotFoundException e) {
 		}
@@ -87,4 +90,5 @@ public class newtInterp {
 		System.out.println(result);
 
 	} //end EvalNewton
+
 }

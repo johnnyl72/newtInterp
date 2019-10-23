@@ -3,7 +3,7 @@ import java.util.*;
 
 public class generatePoints {
 
-		public static int yMAXIMUM = 500;
+	public static int yMAXIMUM = 500;
 
 	public static void main(String[] args) {
 
