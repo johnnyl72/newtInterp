@@ -1,34 +1,35 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class generatePoints {
-	
-	public static int MAXIMUM = 20;
-	
+
+		public static int yMAXIMUM = 500;
+
 	public static void main(String[] args) {
-			
+
 		Scanner kb = new Scanner(System.in);
-		
+
 		System.out.println("Enter n amount of random of points you would like: ");
 		int points = Integer.parseInt(kb.nextLine());
 		System.out.println("Enter the file name and extension");
 		String fileName = kb.nextLine();
-		
+
 		int[] xVector = new int[points];
 		int[] yVector = new int[points];
-	
-		
-		Random rand = new Random();
+
+		ArrayList<Integer> numbers = new ArrayList<Integer>();
+		for(int i = -(points/2); i <= (points/2); i++){
+		numbers.add(i);
+		}
+		Collections.shuffle(numbers);
 		for(int i = 0; i < points; i++) {
-			int point = rand.nextInt(MAXIMUM) - rand.nextInt(MAXIMUM);
-			xVector[i] = point;
-			point = rand.nextInt(MAXIMUM) - rand.nextInt(MAXIMUM);
+			xVector[i] = (int) numbers.get(i);
+
+			Random rand = new Random();
+			int point = rand.nextInt(yMAXIMUM) - rand.nextInt(yMAXIMUM);
 			yVector[i] = point;
 		}
-		
+
 		StringBuilder sb1 = new StringBuilder();
 		for(int i = 0; i < xVector.length; i++) {
 			sb1.append(xVector[i]).append(" ");
@@ -39,10 +40,10 @@ public class generatePoints {
 		}
 		System.out.println(sb1);
 		System.out.println(sb2);
-		
+
 		try {
 			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
-			
+
 			bufferedWriter.write(sb1.toString());
 			bufferedWriter.newLine();
 			bufferedWriter.write(sb2.toString());
@@ -50,6 +51,7 @@ public class generatePoints {
 		}
 		catch(IOException e) {
 		}
-
+		kb.close();
 	}
+
 }

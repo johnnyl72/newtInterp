@@ -2,8 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -16,11 +14,11 @@ public class newtInterp {
 	}
 	static void read(String fileName) {
 		try {
-			
+
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/" + fileName));
-			
+
 			Scanner kb = new Scanner(System.in);
-			String[] inputString; 
+			String[] inputString;
 
 			//Read in x vector
 			String line = bufferedReader.readLine();
@@ -30,7 +28,7 @@ public class newtInterp {
 				xVector[i] = Double.parseDouble(inputString[i]);
 			}
 			System.out.println("X VECTOR: " + Arrays.toString(xVector));
-			
+
 			//Read in y vector
 			line = bufferedReader.readLine();
 			inputString = line.split("\\s+");
@@ -39,7 +37,7 @@ public class newtInterp {
 				yVector[i] = Double.parseDouble(inputString[i]);
 			}
 			System.out.println("Y VECTOR: " + Arrays.toString(yVector));
-			
+
 			String input;
 			System.out.println("Enter 'q' to quit");
 				do {
@@ -51,7 +49,7 @@ public class newtInterp {
 					System.out.println("Elapsed Time: " + duration + " nanoseconds");
 				}while(!input.equalsIgnoreCase("q"));
 
-				
+
 			bufferedReader.close();
 			kb.close();
 		}//end try
@@ -59,7 +57,7 @@ public class newtInterp {
 		}
 		catch(IOException e) {
 		}//end catch
-		
+
 	}//end read
 
 	static void Coeff(double[] xs, double[] ys, double[] cs, double z){
@@ -77,7 +75,7 @@ public class newtInterp {
 
 		EvalNewton(xs, cs, z);
 	} //end Coeff
-	
+
 	static void EvalNewton(double[] xs, double[] cs, double z){
 		int n = xs.length-1;
 		double result = cs[n];
@@ -87,8 +85,6 @@ public class newtInterp {
 		} //end for
 
 		System.out.println(result);
-		
-	} //end EvalNewton
-	
 
+	} //end EvalNewton
 }
