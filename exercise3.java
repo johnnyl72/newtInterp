@@ -5,10 +5,19 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class newtInterp {
+public class exercise3 {
 
 	public static void main(String[] args) {
-		String fileName = args[0];
+    String fileName = "";
+    if(args.length != 1){
+      System.out.println("Please restart program " +
+                         "and enter file name (and extension) "+
+                         "into the Java command line argument!");
+      System.exit(0);
+    }
+    else
+    fileName = args[0];
+
 		read(fileName);
 
 	}
@@ -90,5 +99,6 @@ public class newtInterp {
 		System.out.println(result);
 
 	} //end EvalNewton
+
 
 }
